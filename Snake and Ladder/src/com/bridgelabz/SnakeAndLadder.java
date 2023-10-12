@@ -6,35 +6,48 @@ public class SnakeAndLadder {
 
     public static void main(String[] args) {
 
-        int initialPosition = 0;
+        int playerPosition = 0;
 
-        System.out.println("Initial Player Position : " + initialPosition);
-        Random random =new Random();
-        int dieRoll = random.nextInt(6) + 1;
-        System.out.println("Player rolled the die and got a : " + dieRoll);
+        System.out.println("Initial Player Position : " + playerPosition);
+        Random random = new Random();
 
 
-        int option= random.nextInt(3);
-        System.out.println("Option to be followed : "+ option);
+        while(playerPosition != 10) {
 
-        switch (option) {
-            case 0:
-                System.out.println("No Play" );
-                initialPosition += 0;
-                System.out.println("No moves : " + initialPosition);
-                break;
-            case 1:
-                System.out.println("Ladder");
-                initialPosition += dieRoll;
-                System.out.println("Move ahead by " + initialPosition + " blocks");
-                break;
-            case 2:
-                System.out.println("Snake");
-                initialPosition -= dieRoll;
-                System.out.println("Move back by " + initialPosition + " blocks");
-                break;
+            int dieRoll = random.nextInt(6) + 1;
+            System.out.println("Player rolled the die and got a : " + dieRoll);
+
+            int option = random.nextInt(3);
+            System.out.println("Option to be followed : " + option);
+
+            switch (option) {
+                case 0:
+                    System.out.println("No Play");
+                    playerPosition += 0;
+                    System.out.println("Players Current Position : " + playerPosition);
+
+                    break;
+
+                case 1:
+                    System.out.println("Ladder");
+                    playerPosition += dieRoll;
+                    System.out.println("Move ahead by " + dieRoll + " blocks");
+                    System.out.println("Players Current Position : " + playerPosition);
+                    break;
+
+                case 2:
+                    System.out.println("Snake");
+                    playerPosition -= dieRoll;
+                    if(playerPosition < 0)
+                    {
+                        playerPosition = 0;
+                    }
+                    System.out.println("Move back by " + dieRoll + " blocks");
+                    System.out.println("Players Current Position : " + playerPosition);
+                    break;
+
+            }
 
         }
-        System.out.println("Players Current Position : " + initialPosition);
     }
 }
