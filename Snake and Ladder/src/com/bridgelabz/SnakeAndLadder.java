@@ -3,6 +3,8 @@ package com.bridgelabz;
 public class SnakeAndLadder {
     public static void main(String[] args) {
 
-        System.out.println("Welcome to Snake And Ladder");
+        int initialPosition = 0;
+
+        System.out.println("Player Position : " + initialPosition);
     }
 }
