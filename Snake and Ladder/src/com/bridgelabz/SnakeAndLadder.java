@@ -12,7 +12,7 @@ public class SnakeAndLadder {
         Random random = new Random();
 
 
-        while(playerPosition != 10) {
+        while(playerPosition != 100) {
 
             int dieRoll = random.nextInt(6) + 1;
             System.out.println("Player rolled the die and got a : " + dieRoll);
@@ -30,9 +30,17 @@ public class SnakeAndLadder {
 
                 case 1:
                     System.out.println("Ladder");
-                    playerPosition += dieRoll;
-                    System.out.println("Move ahead by " + dieRoll + " blocks");
+                    int newPosition = playerPosition + dieRoll;
+                    if(newPosition > 100)
+                    {
+                        System.out.println("Cannot move ahead, You rolled too high");
+                    }
+                    else {
+                        playerPosition = newPosition;
+                        System.out.println("Move ahead by " + dieRoll + " blocks");
+                    }
                     System.out.println("Players Current Position : " + playerPosition);
+
                     break;
 
                 case 2:
@@ -44,6 +52,7 @@ public class SnakeAndLadder {
                     }
                     System.out.println("Move back by " + dieRoll + " blocks");
                     System.out.println("Players Current Position : " + playerPosition);
+                    
                     break;
 
             }
